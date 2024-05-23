@@ -11,4 +11,5 @@ class NewsRepositories {
     suspend fun getApi(query: String): Response<NewsAPIResponse> {
         return api.getNews(query)
     }
+
 }
