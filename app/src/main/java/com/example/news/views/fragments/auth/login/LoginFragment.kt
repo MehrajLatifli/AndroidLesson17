@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.news.databinding.FragmentLoginBinding
 import com.example.news.viewmodels.AuthViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -39,11 +42,16 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginUser() {
-        val email = binding.textInputEditText1.text.toString().trim()
-        val password = binding.textInputEditText2.text.toString().trim()
 
-        if (email.isNotEmpty() && password.isNotEmpty()) {
-            viewModel.login(email, password)
+        lifecycleScope.launch(Dispatchers.Main) {
+
+            val email = binding.textInputEditText1.text.toString().trim()
+            val password = binding.textInputEditText2.text.toString().trim()
+
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                viewModel.login(email, password)
+            }
+
         }
 
     }

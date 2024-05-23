@@ -7,12 +7,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.news.databinding.FragmentRegisterBinding
 import com.example.news.utilities.gone
 import com.example.news.utilities.visible
 import com.example.news.viewmodels.AuthViewModel
 import com.example.news.views.fragments.auth.login.LoginFragmentDirections
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
@@ -49,10 +52,7 @@ class RegisterFragment : Fragment() {
         viewModel.isLogin.observe(viewLifecycleOwner) {
             if (it) {
 
-
-
                 findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
-
             }
         }
 
@@ -66,23 +66,23 @@ class RegisterFragment : Fragment() {
     }
 
     private fun registerUser() {
-        val email = binding.textInputEditText.text.toString().trim()
-        val password = binding.textInputEditText2.text.toString().trim()
-        val password2 = binding.textInputEditText3.text.toString().trim()
 
-        if (email.isNotEmpty() && password.isNotEmpty() && password2.isNotEmpty()) {
+        lifecycleScope.launch(Dispatchers.Main) {
 
-            if(password==password2)
-            {
-                viewModel.register(email, password)
+            val email = binding.textInputEditText.text.toString().trim()
+            val password = binding.textInputEditText2.text.toString().trim()
+            val password2 = binding.textInputEditText3.text.toString().trim()
+
+            if (email.isNotEmpty() && password.isNotEmpty() && password2.isNotEmpty()) {
+
+                if (password == password2) {
+                    viewModel.register(email, password)
+                } else {
+                    Toast.makeText(context, "Password is false", Toast.LENGTH_LONG).show()
+                }
+
+
             }
-            else{
-                Toast.makeText(context, "Password is false", Toast.LENGTH_LONG).show()
-            }
-
-
-
-
         }
     }
 

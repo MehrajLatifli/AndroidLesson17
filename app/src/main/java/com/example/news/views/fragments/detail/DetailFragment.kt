@@ -37,28 +37,24 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        lifecycleScope.launch(Dispatchers.IO) {
 
-            val article = DetailFragmentArgs.fromBundle(requireArguments()).article
+        val article = DetailFragmentArgs.fromBundle(requireArguments()).article
 
-            withContext(Dispatchers.Main) {
-                binding.article = article
-            }
+        binding.article = article
 
-            withContext(Dispatchers.IO) {
+        binding.readButton.setOnClickListener {
 
-                binding.readButton.setOnClickListener {
+            openUrl(article.url.toString())
 
-                    openUrl(article.url.toString())
-
-                }
-            }
         }
     }
 
     fun openUrl(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        startActivity(intent)
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
+        }
     }
 
     override fun onDestroyView() {
