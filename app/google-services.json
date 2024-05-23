@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "660923700450",
+    "project_id": "news-rapidapi",
+    "storage_bucket": "news-rapidapi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660923700450:android:27570ba871bc378788babb",
+        "android_client_info": {
+          "package_name": "com.example.androidlesson16"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660923700450-4542cte8dadvvod7q78idgeeqac6lh45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDerv8E-8x-UI0OYc-_iJ2CKcG8OqG0Hc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660923700450-4542cte8dadvvod7q78idgeeqac6lh45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660923700450:android:4ab7ed4fae6624e888babb",
+        "android_client_info": {
+          "package_name": "com.example.news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660923700450-4542cte8dadvvod7q78idgeeqac6lh45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDerv8E-8x-UI0OYc-_iJ2CKcG8OqG0Hc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660923700450-4542cte8dadvvod7q78idgeeqac6lh45.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
